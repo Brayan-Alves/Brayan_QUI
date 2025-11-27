@@ -1,22 +1,22 @@
 public class Metal {
-    String nomeMetal;
+    String nome;
     String simbolo;
-    int numOxidacao;
     String estado;
+    double potencialReducao;
 
-    public Metal(String nomeMetal, String simbolo, int numOxidacao, String estado) {
-        this.nomeMetal = nomeMetal;
+    public Metal(String nome, String simbolo, String estado, double potencialReducao) {
+        this.nome = nome;
         this.simbolo = simbolo;
-        this.numOxidacao = numOxidacao;
+        this.potencialReducao = potencialReducao;
         this.estado = estado;
     }
 
-    public String getNomeMetal() {
-        return nomeMetal;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeMetal(String nomeMetal) {
-        this.nomeMetal = nomeMetal;
+    public void setNome(String nomeMetal) {
+        this.nome = nomeMetal;
     }
 
     public String getSimbolo() {
@@ -27,20 +27,20 @@ public class Metal {
         this.simbolo = simbolo;
     }
 
-    public int getNumOxidacao() {
-        return numOxidacao;
-    }
-
-    public void setNumOxidacao(int numOxidacao) {
-        this.numOxidacao = numOxidacao;
-    }
-
     public String getEstado() {
         return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public double getPotencialReducao() {
+        return potencialReducao;
+    }
+
+    public void setPotencialReducao(double potencialReducao) {
+        this.potencialReducao = potencialReducao;
     }
     
 }

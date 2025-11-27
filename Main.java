@@ -1,42 +1,54 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
-public class OxidacaoReducao {
+public class Main {
+    public static Scanner LER = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        Metal zn = new Metal("Zinco", "Zn", 0, "s");
-        Metal cu = new Metal("Cobre", "Cu", 0, "s");
-        Metal zn2 = new Metal("Zinco", "Zn2+", 2, "aq");
-        Metal cu2 = new Metal("Cobre", "Cu2+", 2, "aq");
+        List<Metal> metais = criarMetais();
 
-        Metal[] opcoes = {zn, cu, zn2, cu2};
 
-        System.out.println("Escolha duas espécies:");
-        for (int i = 0; i < opcoes.length; i++) {
-            System.out.println((i + 1) + " - " + opcoes[i].getSimbolo());
+        System.out.println("Selecione duas espécies: ");
+        int cont = 1;
+        for (Metal metal : metais) {
+            System.out.println((cont) + " - Nome: " + metal.getNome() + " | Símbolo: " + metal.getSimbolo() + " | Estado: " + metal.getEstado() + " | Potencial de Redução: " + metal.getPotencialReducao());
+            cont++;
         }
+        
 
-        System.out.print("Escolha a primeira: ");
-        int escolha1 = sc.nextInt();
-        System.out.print("Escolha a segunda: ");
-        int escolha2 = sc.nextInt();
+        System.out.print("\nEscolha o número da primeira espécie: ");
+        int x = LER.nextInt();
+        System.out.print("Escolha o número da segunda espécie: ");
+        int y = LER.nextInt();
 
-        Metal m1 = opcoes[escolha1 - 1];
-        Metal m2 = opcoes[escolha2 - 1];
+        Metal m1 = metais.get(x-1);
+        Metal m2 = metais.get(y-1);
 
-        System.out.println("\nVocê escolheu: " + m1.getSimbolo() + "(" + m1.getEstado() + ") e " +
-                           m2.getSimbolo() + "(" + m2.getEstado() + ")");
+        PilhaEletrica pilha = new PilhaEletrica(m1, m2);
+        pilha.calcularPilha();
+    }
 
-        if (m1.getNumOxidacao() == 0 && m2.getNumOxidacao() == 2 && !m1.getNomeMetal().equals(m2.getNomeMetal())) {
-            System.out.println(m1.getSimbolo() + "(" + m1.getEstado() + ") oxida e " +
-                               m2.getSimbolo() + "(" + m2.getEstado() + ") reduz.");
-        } else if (m1.getNumOxidacao() == 2 && m2.getNumOxidacao() == 0 && !m1.getNomeMetal().equals(m2.getNomeMetal())) {
-            System.out.println(m2.getSimbolo() + "(" + m2.getEstado() + ") oxida e " +
-                               m1.getSimbolo() + "(" + m1.getEstado() + ") reduz.");
-        } else {
-            System.out.println("Não ocorre reação de oxirredução entre essas espécies.");
-        }
-
-        sc.close();
+    public static List<Metal> criarMetais(){
+        List<Metal> metais = new ArrayList<>();
+        metais.add(new Metal("Cobre", "Cu", "s", 0.34));
+        metais.add(new Metal("Íon cobre II", "Cu2+", "aq", 0.34));
+        metais.add(new Metal("Zinco", "Zn", "s", -0.76));
+        metais.add(new Metal("Íon zinco II", "Zn2+", "s", -0.76));
+        metais.add(new Metal("Lítio", "Li", "s", -3.04));
+        metais.add(new Metal("Íon lítio", "Li⁺", "aq", -3.04));
+        metais.add(new Metal("Potássio", "K", "s", -2.93));
+        metais.add(new Metal("Íon potássio", "K⁺", "aq", -2.93));
+        metais.add(new Metal("Cálcio", "Ca", "s", -2.87));
+        metais.add(new Metal("Íon cálcio", "Ca²⁺", "aq", -2.87));
+        metais.add(new Metal("Sódio", "Na", "s", -2.71));
+        metais.add(new Metal("Íon sódio", "Na⁺", "aq", -2.71));
+        metais.add(new Metal("Alumínio", "Al", "s", -1.66));
+        metais.add(new Metal("Íon alumínio", "Al³⁺", "aq", -1.66));
+        metais.add(new Metal("Magnésio", "Mg", "s", -2.37));
+        metais.add(new Metal("Íon magnésio", "Mg²⁺", "aq", -2.37));
+        metais.add(new Metal("Ferro", "Fe", "s", -0.44));
+        metais.add(new Metal("Íon ferro II", "Fe²⁺", "aq", -0.44));
+        return metais;
     }
 }
