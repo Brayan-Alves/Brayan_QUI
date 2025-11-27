@@ -1,53 +1,42 @@
-import java.util.HashMap;
 import java.util.Scanner;
 
-public class Main{
-    public static Scanner LER = new Scanner(System.in);
+public class OxidacaoReducao {
     public static void main(String[] args) {
-        HashMap<String, Double> metais = new HashMap<>();
-        String metalA = null;
-        String metalB = null;
+        Scanner sc = new Scanner(System.in);
 
-        metais.put("Zinco", -0.76);
-        metais.put("Cobre", 0.34);
+        Metal zn = new Metal("Zinco", "Zn", 0, "s");
+        Metal cu = new Metal("Cobre", "Cu", 0, "s");
+        Metal zn2 = new Metal("Zinco", "Zn2+", 2, "aq");
+        Metal cu2 = new Metal("Cobre", "Cu2+", 2, "aq");
 
-        System.out.println("Digite qual metal deseja: ");
-        int c = 1;
-        for (String chave : metais.keySet()) {
-            System.out.println(c+" "+chave);
-            c++;
-        }
-        c = LER.nextInt();
-        if(c == 1){
-            metalA  = "Zinco";
-        }else{
-            metalA = "Cobre";
-        }
-        
-        
-        System.out.println("Digite qual metal deseja: ");
-        c = 1;
-        for (String chave : metais.keySet()) {
-            System.out.println(c+" "+chave);
-            c++;
+        Metal[] opcoes = {zn, cu, zn2, cu2};
+
+        System.out.println("Escolha duas espécies:");
+        for (int i = 0; i < opcoes.length; i++) {
+            System.out.println((i + 1) + " - " + opcoes[i].getSimbolo());
         }
 
-        c = LER.nextInt();
-        if(c == 1){
-            metalB  = "Zinco";
-        }else{
-            metalB = "Cobre";
-        }
-        
+        System.out.print("Escolha a primeira: ");
+        int escolha1 = sc.nextInt();
+        System.out.print("Escolha a segunda: ");
+        int escolha2 = sc.nextInt();
 
-        if(metais.get(metalA) > metais.get(metalB)){
-            System.out.println("A espécie que oxida é "+metalA);
-            System.out.println("A espécie que reduz é "+metalB);
-        }else if(metais.get(metalA) < metais.get(metalB)){
-            System.out.println("A espécie que oxida é "+metalB);
-            System.out.println("A espécie que reduz é "+metalA);
-        }else{
-            System.out.println("Deu erro!");
+        Metal m1 = opcoes[escolha1 - 1];
+        Metal m2 = opcoes[escolha2 - 1];
+
+        System.out.println("\nVocê escolheu: " + m1.getSimbolo() + "(" + m1.getEstado() + ") e " +
+                           m2.getSimbolo() + "(" + m2.getEstado() + ")");
+
+        if (m1.getNumOxidacao() == 0 && m2.getNumOxidacao() == 2 && !m1.getNomeMetal().equals(m2.getNomeMetal())) {
+            System.out.println(m1.getSimbolo() + "(" + m1.getEstado() + ") oxida e " +
+                               m2.getSimbolo() + "(" + m2.getEstado() + ") reduz.");
+        } else if (m1.getNumOxidacao() == 2 && m2.getNumOxidacao() == 0 && !m1.getNomeMetal().equals(m2.getNomeMetal())) {
+            System.out.println(m2.getSimbolo() + "(" + m2.getEstado() + ") oxida e " +
+                               m1.getSimbolo() + "(" + m1.getEstado() + ") reduz.");
+        } else {
+            System.out.println("Não ocorre reação de oxirredução entre essas espécies.");
         }
+
+        sc.close();
     }
 }
