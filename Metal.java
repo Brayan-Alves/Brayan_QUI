@@ -4,7 +4,7 @@ public class Metal {
     String estado;
     double potencialReducao;
 
-    public Metal(String nome, String simbolo, String estado, double potencialReducao) {
+    public Metal(String nome, String simbolo, double potencialReducao, String estado) {
         this.nome = nome;
         this.simbolo = simbolo;
         this.potencialReducao = potencialReducao;

@@ -9,7 +9,7 @@ public class Pilha {
     }
 
     public void calcular() {
-        System.out.println("=== OPERAÇÃO DA PILHA GALVÂNICA ===\n");
+        System.out.println("======== OPERAÇÃO DA PILHA ========\n");
 
         System.out.println("Metal 1: " + m1.getNome() + " (" + m1.getSimbolo() + ")");
         System.out.println("Estado: " + m1.getEstado());
@@ -37,9 +37,9 @@ public class Pilha {
         double potencial = reduz.getPotencialReducao() - oxida.getPotencialReducao();
 
         System.out.println("Cálculo do Potencial da Pilha:");
-        System.out.println("Eº = Eº(cátodo) - Eº(ânodo)");
-        System.out.printf("Eº = %.2f - (%.2f)\n", reduz.getPotencialReducao(), oxida.getPotencialReducao());
-        System.out.printf("Eº = %.2f V\n\n", potencial);
+        System.out.println("E = E(cátodo) - E(ânodo)");
+        System.out.printf("E = %.2f - (%.2f)\n", reduz.getPotencialReducao(), oxida.getPotencialReducao());
+        System.out.printf("E = %.2f V\n\n", potencial);
 
         System.out.printf("Potencial total da pilha: %.2f V\n\n", potencial);
 
