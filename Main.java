@@ -25,8 +25,8 @@ public class Main {
         Metal m1 = metais.get(x-1);
         Metal m2 = metais.get(y-1);
 
-        PilhaEletrica pilha = new PilhaEletrica(m1, m2);
-        pilha.calcularPilha();
+        Pilha pilha = new Pilha(m1, m2);
+        pilha.calcular();
     }
 
     public static List<Metal> criarMetais(){
@@ -36,19 +36,19 @@ public class Main {
         metais.add(new Metal("Zinco", "Zn", "s", -0.76));
         metais.add(new Metal("Íon zinco II", "Zn2+", "s", -0.76));
         metais.add(new Metal("Lítio", "Li", "s", -3.04));
-        metais.add(new Metal("Íon lítio", "Li⁺", "aq", -3.04));
+        metais.add(new Metal("Íon lítio", "Li+", "aq", -3.04));
         metais.add(new Metal("Potássio", "K", "s", -2.93));
-        metais.add(new Metal("Íon potássio", "K⁺", "aq", -2.93));
+        metais.add(new Metal("Íon potássio", "K+", "aq", -2.93));
         metais.add(new Metal("Cálcio", "Ca", "s", -2.87));
-        metais.add(new Metal("Íon cálcio", "Ca²⁺", "aq", -2.87));
+        metais.add(new Metal("Íon cálcio", "Ca2+", "aq", -2.87));
         metais.add(new Metal("Sódio", "Na", "s", -2.71));
-        metais.add(new Metal("Íon sódio", "Na⁺", "aq", -2.71));
+        metais.add(new Metal("Íon sódio", "Na+", "aq", -2.71));
         metais.add(new Metal("Alumínio", "Al", "s", -1.66));
-        metais.add(new Metal("Íon alumínio", "Al³⁺", "aq", -1.66));
+        metais.add(new Metal("Íon alumínio", "Al3+", "aq", -1.66));
         metais.add(new Metal("Magnésio", "Mg", "s", -2.37));
-        metais.add(new Metal("Íon magnésio", "Mg²⁺", "aq", -2.37));
+        metais.add(new Metal("Íon magnésio", "Mg2+", "aq", -2.37));
         metais.add(new Metal("Ferro", "Fe", "s", -0.44));
-        metais.add(new Metal("Íon ferro II", "Fe²⁺", "aq", -0.44));
+        metais.add(new Metal("Íon ferro II", "Fe2+", "aq", -0.44));
         return metais;
     }
 }
