@@ -32,7 +32,6 @@ public class Main {
     public static List<Metal> carregarMetais() {
 
         List<Metal> lista = new ArrayList<>();
-
         lista.add(new Metal("Lítio", "Li", -3.04, "s"));
         lista.add(new Metal("Potássio", "K", -2.93, "s"));
         lista.add(new Metal("Cálcio", "Ca", -2.87, "s"));
@@ -53,6 +52,16 @@ public class Main {
         lista.add(new Metal("Paládio", "Pd", 0.95, "s"));
         lista.add(new Metal("Índio", "In", -0.34, "s"));
         lista.add(new Metal("Manganês", "Mn", -1.18, "s"));
+        lista.add(new Metal("Zinco (íon)", "Zn2+", -0.76, "aq"));
+        lista.add(new Metal("Ferro (íon)", "Fe2+", -0.44, "aq"));
+        lista.add(new Metal("Níquel (íon)", "Ni2+", -0.23, "aq"));
+        lista.add(new Metal("Estanho (íon)", "Sn2+", -0.14, "aq"));
+        lista.add(new Metal("Chumbo (íon)", "Pb2+", -0.13, "aq"));
+        lista.add(new Metal("Cobre (íon)", "Cu2+", 0.34, "aq"));
+        lista.add(new Metal("Prata (íon)", "Ag+", 0.80, "aq"));
+        lista.add(new Metal("Mercúrio (íon)", "Hg2+", 0.85, "aq"));
+        lista.add(new Metal("Platina (íon)", "Pt2+", 1.20, "aq"));
+        lista.add(new Metal("Ouro (íon)", "Au3+", 1.50, "aq"));
 
         return lista;
     }
