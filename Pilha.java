@@ -8,57 +8,61 @@ public class Pilha {
         this.m2 = m2;
     }
 
-    public void calcular() {
-        System.out.println("======== OPERAÇÃO DA PILHA ========\n");
+    public void operar() {
+        System.out.println("\n=== OPERAÇÃO DA PILHA GALVÂNICA ===\n");
 
-        System.out.println("Metal 1: " + m1.getNome() + " (" + m1.getSimbolo() + ")");
-        System.out.println("Estado: " + m1.getEstado());
-        System.out.println("Potencial de Redução: " + m1.getPotencialReducao() + " V\n");
-        System.out.println("Metal 2: " + m2.getNome() + " (" + m2.getSimbolo() + ")");
-        System.out.println("Estado: " + m2.getEstado());
-        System.out.println("Potencial de Redução: " + m2.getPotencialReducao() + " V\n");
-        if (m1.getPotencialReducao() == m2.getPotencialReducao()) {
-            System.out.println("-----------------------------------");
-            System.out.println("Ambos possuem o mesmo potencial!");
-            System.out.println("Não ocorre reação de oxirredução.");
-            System.out.println("Potencial total da pilha: 0.00 V");
-            System.out.println("===================================");
-            return;
-        }else if(m1.getEstado() == "aq" && m2.getEstado() == "aq"){
-            System.out.println("-----------------------------------");
-            System.out.println("A pilha não é possivel!");
-            System.out.println("Não há metal sólido para oxidar");
-            System.out.println("===================================");
-            return;
-        }else if(m1.getEstado() == "s" && m2.getEstado()) == "s"){
-            System.out.println("-----------------------------------");
-            System.out.println("A pilha não é possivel!");
-            System.out.println("Não há espécie iônica para reduzir");
-            System.out.println("===================================");
+        System.out.println("Metal 1: " + m1);
+        System.out.println("Metal 2: " + m2 + "\n");
+
+        if (m1.getEstado().equals("aq") && m2.getEstado().equals("aq")) {
+            System.out.println("Impossível formar pilha: ambos estão em solução aquosa.");
             return;
         }
 
-        Metal reduz = (m1.getPotencialReducao() > m2.getPotencialReducao()) ? m1 : m2;
-        Metal oxida = (reduz == m1) ? m2 : m1;
+        if (m1.getEstado().equals("s") && m2.getEstado().equals("s")) {
+            System.out.println("Impossível formar pilha: ambos são metais sólidos.");
+            return;
+        }
 
-        System.out.println("-----------------------------------");
-        System.out.println("Metal que oxida : " + oxida.getNome() + " (" + oxida.getSimbolo() + ")");
-        System.out.println("Metal que reduz : " + reduz.getNome() + " (" + reduz.getSimbolo() + ")");
-        System.out.println("-----------------------------------\n");
+        if (m1.getSimboloBase().equals(m2.getSimboloBase())) {
+            System.out.println("Impossível formar pilha: metal sólido e íon do mesmo elemento.");
+            return;
+        }
+
+        Metal reduz;
+        Metal oxida;
+
+        if (m1.getPotencialReducao() > m2.getPotencialReducao()) {
+            reduz = m1;
+            oxida = m2;
+        } else if (m2.getPotencialReducao() > m1.getPotencialReducao()) {
+            reduz = m2;
+            oxida = m1;
+        } else {
+            System.out.println("Potenciais iguais — pilha não funciona (E° = 0).");
+            return;
+        }
 
         double potencial = reduz.getPotencialReducao() - oxida.getPotencialReducao();
 
-        System.out.println("Cálculo do Potencial da Pilha:");
-        System.out.println("E = E(cátodo) - E(ânodo)");
-        System.out.printf("E = %.2f - (%.2f)\n", reduz.getPotencialReducao(), oxida.getPotencialReducao());
-        System.out.printf("E = %.2f V\n\n", potencial);
+        System.out.println("-----------------------------------");
+        System.out.println("Metal que oxida : " + oxida.getNome());
+        System.out.println("Metal que reduz : " + reduz.getNome());
+        System.out.println("-----------------------------------\n");
 
-        System.out.printf("Potencial total da pilha: %.2f V\n\n", potencial);
+        System.out.println("Cálculo do Potencial da Pilha:");
+        System.out.println("Eº = " + reduz.getPotencialReducao() + " - (" + oxida.getPotencialReducao() + ")");
+        System.out.println("Eº = " + potencial + " V\n");
+
+        System.out.println("Potencial total da pilha: " + potencial + " V\n");
 
         System.out.println("Reação Global:");
-        System.out.println(oxida.getSimbolo() + "(" + oxida.getEstado() + ") + "
-                + reduz.getSimbolo() + "2+(aq) → "
-                + oxida.getSimbolo() + "2+(aq) + " + reduz.getSimbolo() + "(" + reduz.getEstado() + ")\n");
-        System.out.println("===================================");
+        System.out.println(oxida.getSimboloBase() + "(s) + " +
+                           reduz.getSimbolo() + "(aq) → " +
+                           oxida.getSimboloBase() + "2+(aq) + " +
+                           reduz.getSimboloBase() + "(s)");
+
+        System.out.println("\nA pilha é espontânea: " + (potencial > 0 ? "SIM" : "NÃO"));
+        System.out.println("===================================\n");
     }
 }

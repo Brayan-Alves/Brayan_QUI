@@ -1,33 +1,12 @@
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
-    public static Scanner LER = new Scanner(System.in);
-    public static void main(String[] args) {
+public class BancoDeMetais {
 
-        List<Metal> metais = BancoDeMetais.carregarMetais();
-        int cont = 1;
-        for (Metal metal : metais) {
-            System.out.println(cont+". " + metal.getNome() + " | " + metal.getSimbolo() + "("+metal.getEstado()+")" + " | Potencial: " + metal.getPotencialReducao());
-            cont++;
-        }
-
-        System.out.print("Digite a espécie 1:");
-        int x = LER.nextInt();
-        System.out.print("Digite a espécie 2:");
-        int y = LER.nextInt();
-        Metal m1 = metais.get(x-1);
-        Metal m2 = metais.get(y-1);
-
-        Pilha p = new Pilha(m1, m2);
-        p.operar();
-    }
-
-    
     public static List<Metal> carregarMetais() {
 
         List<Metal> lista = new ArrayList<>();
+
         lista.add(new Metal("Lítio", "Li", -3.04, "s"));
         lista.add(new Metal("Potássio", "K", -2.93, "s"));
         lista.add(new Metal("Cálcio", "Ca", -2.87, "s"));
@@ -61,5 +40,4 @@ public class Main {
 
         return lista;
     }
-
 }

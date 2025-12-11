@@ -1,8 +1,9 @@
 public class Metal {
-    String nome;
-    String simbolo;
-    String estado;
-    double potencialReducao;
+
+    private String nome;
+    private String simbolo;
+    private double potencialReducao;
+    private String estado;
 
     public Metal(String nome, String simbolo, double potencialReducao, String estado) {
         this.nome = nome;
@@ -11,36 +12,17 @@ public class Metal {
         this.estado = estado;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome() { return nome; }
+    public String getSimbolo() { return simbolo; }
+    public double getPotencialReducao() { return potencialReducao; }
+    public String getEstado() { return estado; }
+
+    public String getSimboloBase() {
+        return simbolo.replaceAll("[0-9+]+", "");
     }
 
-    public void setNome(String nomeMetal) {
-        this.nome = nomeMetal;
+    @Override
+    public String toString() {
+        return nome + " (" + simbolo + ") - " + estado + " - E° = " + potencialReducao + " V";
     }
-
-    public String getSimbolo() {
-        return simbolo;
-    }
-
-    public void setSimbolo(String simbolo) {
-        this.simbolo = simbolo;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public double getPotencialReducao() {
-        return potencialReducao;
-    }
-
-    public void setPotencialReducao(double potencialReducao) {
-        this.potencialReducao = potencialReducao;
-    }
-    
 }
