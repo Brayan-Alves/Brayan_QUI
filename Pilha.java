@@ -24,11 +24,18 @@ public class Pilha {
             System.out.println("Potencial total da pilha: 0.00 V");
             System.out.println("===================================");
             return;
-        }else if(m1.getEstado() == "aq" || m2.estado == "aq"){
+        }else if(m1.getEstado() == "aq" && m2.getEstado() == "aq"){
             System.out.println("-----------------------------------");
             System.out.println("A pilha não é possivel!");
-            System.out.println("Pois algum dos metais ja estão oxidados");
+            System.out.println("Não há metal sólido para oxidar");
             System.out.println("===================================");
+            return;
+        }else if(m1.getEstado() == "s" && m2.getEstado()) == "s"){
+            System.out.println("-----------------------------------");
+            System.out.println("A pilha não é possivel!");
+            System.out.println("Não há espécie iônica para reduzir");
+            System.out.println("===================================");
+            return;
         }
 
         Metal reduz = (m1.getPotencialReducao() > m2.getPotencialReducao()) ? m1 : m2;
