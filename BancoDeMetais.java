@@ -3,40 +3,42 @@ import java.util.List;
 
 public class BancoDeMetais {
 
-    public static List<Metal> carregarMetais() {
-
+    public static List<Metal> criarMetais() {
         List<Metal> lista = new ArrayList<>();
 
-        lista.add(new Metal("Lítio", "Li", -3.04, "s"));
-        lista.add(new Metal("Potássio", "K", -2.93, "s"));
-        lista.add(new Metal("Cálcio", "Ca", -2.87, "s"));
-        lista.add(new Metal("Sódio", "Na", -2.71, "s"));
-        lista.add(new Metal("Magnésio", "Mg", -2.37, "s"));
-        lista.add(new Metal("Alumínio", "Al", -1.66, "s"));
-        lista.add(new Metal("Zinco", "Zn", -0.76, "s"));
-        lista.add(new Metal("Ferro", "Fe", -0.44, "s"));
-        lista.add(new Metal("Níquel", "Ni", -0.23, "s"));
-        lista.add(new Metal("Estanho", "Sn", -0.14, "s"));
-        lista.add(new Metal("Chumbo", "Pb", -0.13, "s"));
-        lista.add(new Metal("Hidrogênio", "H2", 0.00, "g"));
-        lista.add(new Metal("Cobre", "Cu", 0.34, "s"));
-        lista.add(new Metal("Prata", "Ag", 0.80, "s"));
-        lista.add(new Metal("Mercúrio", "Hg", 0.85, "l"));
-        lista.add(new Metal("Platina", "Pt", 1.20, "s"));
-        lista.add(new Metal("Ouro", "Au", 1.50, "s"));
-        lista.add(new Metal("Paládio", "Pd", 0.95, "s"));
-        lista.add(new Metal("Índio", "In", -0.34, "s"));
-        lista.add(new Metal("Manganês", "Mn", -1.18, "s"));
-        lista.add(new Metal("Zinco (íon)", "Zn2+", -0.76, "aq"));
-        lista.add(new Metal("Ferro (íon)", "Fe2+", -0.44, "aq"));
-        lista.add(new Metal("Níquel (íon)", "Ni2+", -0.23, "aq"));
-        lista.add(new Metal("Estanho (íon)", "Sn2+", -0.14, "aq"));
-        lista.add(new Metal("Chumbo (íon)", "Pb2+", -0.13, "aq"));
-        lista.add(new Metal("Cobre (íon)", "Cu2+", 0.34, "aq"));
-        lista.add(new Metal("Prata (íon)", "Ag+", 0.80, "aq"));
-        lista.add(new Metal("Mercúrio (íon)", "Hg2+", 0.85, "aq"));
-        lista.add(new Metal("Platina (íon)", "Pt2+", 1.20, "aq"));
-        lista.add(new Metal("Ouro (íon)", "Au3+", 1.50, "aq"));
+        lista.add(new Metal("Li(s)", "s", -3.04, -1));
+        lista.add(new Metal("K(s)", "s", -2.93, -1));
+        lista.add(new Metal("Ca(s)", "s", -2.87, -2));
+        lista.add(new Metal("Na(s)", "s", -2.71, -1));
+        lista.add(new Metal("Mg(s)", "s", -2.37, -2));
+        lista.add(new Metal("Al(s)", "s", -1.66, -3));
+        lista.add(new Metal("Zn(s)", "s", -0.76, -2));
+        lista.add(new Metal("Fe(s)", "s", -0.44, -2));
+        lista.add(new Metal("Ni(s)", "s", -0.23, -2));
+        lista.add(new Metal("Sn(s)", "s", -0.14, -2));
+        lista.add(new Metal("Pb(s)", "s", -0.13, -2));
+        lista.add(new Metal("H2(g)", "g", 0.00, -2));
+        lista.add(new Metal("Cu(s)", "s", +0.34, -2));
+        lista.add(new Metal("Hg(l)", "l", +0.79, -2));
+        lista.add(new Metal("Ag(s)", "s", +0.80, -1));
+        lista.add(new Metal("Au(s)", "s", +1.50, -3));
+
+        lista.add(new Metal("Li+(aq)", "aq", -3.04, +1));
+        lista.add(new Metal("K+(aq)", "aq", -2.93, +1));
+        lista.add(new Metal("Ca2+(aq)", "aq", -2.87, +2));
+        lista.add(new Metal("Na+(aq)", "aq", -2.71, +1));
+        lista.add(new Metal("Mg2+(aq)", "aq", -2.37, +2));
+        lista.add(new Metal("Al3+(aq)", "aq", -1.66, +3));
+        lista.add(new Metal("Zn2+(aq)", "aq", -0.76, +2));
+        lista.add(new Metal("Fe2+(aq)", "aq", -0.44, +2));
+        lista.add(new Metal("Ni2+(aq)", "aq", -0.23, +2));
+        lista.add(new Metal("Sn2+(aq)", "aq", -0.14, +2));
+        lista.add(new Metal("Pb2+(aq)", "aq", -0.13, +2));
+        lista.add(new Metal("H+(aq)", "aq", 0.00, +1));
+        lista.add(new Metal("Cu2+(aq)", "aq", +0.34, +2));
+        lista.add(new Metal("Ag+(aq)", "aq", +1.67, +1));
+        lista.add(new Metal("Hg2+(aq)", "aq", +0.79, +2));
+        lista.add(new Metal("Au3+(aq)", "aq", +1.50, +3));
 
         return lista;
     }
